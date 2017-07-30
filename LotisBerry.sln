@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LotisBerry.Plugins", "LotisBerry.Plugins.csproj", "{0FA47BA8-14A4-3472-5B81-35B18B203FA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LotisBerry", "LotisBerry.csproj", "{9746E477-5154-4180-5965-E9798F0F8F2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LotisBerry.Editor.Plugins", "LotisBerry.Editor.Plugins.csproj", "{C3DCD6AB-2CF6-B5E6-CA18-52CB3DB9A67F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LotisBerry.Editor", "LotisBerry.Editor.csproj", "{6763E937-54B1-0A1C-9899-3657AFB6E01C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FA47BA8-14A4-3472-5B81-35B18B203FA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FA47BA8-14A4-3472-5B81-35B18B203FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FA47BA8-14A4-3472-5B81-35B18B203FA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FA47BA8-14A4-3472-5B81-35B18B203FA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9746E477-5154-4180-5965-E9798F0F8F2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9746E477-5154-4180-5965-E9798F0F8F2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9746E477-5154-4180-5965-E9798F0F8F2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9746E477-5154-4180-5965-E9798F0F8F2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3DCD6AB-2CF6-B5E6-CA18-52CB3DB9A67F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3DCD6AB-2CF6-B5E6-CA18-52CB3DB9A67F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3DCD6AB-2CF6-B5E6-CA18-52CB3DB9A67F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3DCD6AB-2CF6-B5E6-CA18-52CB3DB9A67F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6763E937-54B1-0A1C-9899-3657AFB6E01C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6763E937-54B1-0A1C-9899-3657AFB6E01C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6763E937-54B1-0A1C-9899-3657AFB6E01C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6763E937-54B1-0A1C-9899-3657AFB6E01C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
