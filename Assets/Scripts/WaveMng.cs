@@ -29,8 +29,11 @@ public class WaveMng : MonoBehaviour
 
     public static Action WaveEndCallback;
     public static int waveState;
+
+    public static bool isEndlessMode;
     private void Start()
     {
+        isEndlessMode = false;
         SpawnList = new List<List<MonsterAmount>>();
         XmlDocument doc = new XmlDocument();
         doc.LoadXml(waveXml.text);
@@ -64,7 +67,9 @@ public class WaveMng : MonoBehaviour
             Wave += 1;
             if (Wave >= SpawnList.Count)
             {
-                Wave = 0;
+                isEndlessMode = true;
+                Wave = UnityEngine.Random.Range(0, SpawnList.Count);
+                StartCoroutine(SpawnMob());
             }
             else
             {

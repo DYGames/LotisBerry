@@ -72,7 +72,10 @@ public class UserInterface : MonoBehaviour
         towerNum.text = Context.tileInput.towerNum.ToString();
         scoretext.text = Score.ToString();
         waveTimetext.text = waveTime.ToString("mm : ss");
-        wavetext.text = (WaveMng.Wave + 1).ToString();
+        if (WaveMng.isEndlessMode)
+            wavetext.text = "Endless Wave";
+        else
+            wavetext.text = (WaveMng.Wave + 1).ToString();
         reload.SetActive(playerAttack.isReload);
         hptext.text = playerAttack.HP.ToString();
     }
