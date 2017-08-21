@@ -51,6 +51,14 @@ public class UserInterface : MonoBehaviour
     [SerializeField]
     public GameObject defeat;
 
+    [SerializeField]
+    public GameObject help;
+
+    [SerializeField]
+    private GameObject towerUpgrade;
+    [SerializeField]
+    private GameObject charUpgrade;
+
     private int Score;
     private System.DateTime waveTime;
 
@@ -60,6 +68,7 @@ public class UserInterface : MonoBehaviour
     {
         Context.userInterface = this;
         waveTime = new System.DateTime(2017, 7, 27, 0, 5, 0);
+        UIOnoff(false);
     }
 
     private void Update()
@@ -69,6 +78,7 @@ public class UserInterface : MonoBehaviour
         else
             gunAmounttext.text = playerAttack.magAmount.ToString();
 
+        help.SetActive(Input.GetKey(KeyCode.F1));
         towerNum.text = Context.tileInput.towerNum.ToString();
         scoretext.text = Score.ToString();
         waveTimetext.text = waveTime.ToString("mm : ss");
@@ -86,7 +96,13 @@ public class UserInterface : MonoBehaviour
         waveTime = waveTime.Subtract(new System.TimeSpan(0, 0, 1));
         if (waveTime.Minute == 0 && waveTime.Second == 0)
         {
-            //time over
+            UIOnoff(false);
+            continueButton.GetComponent<MaskableGraphic>().enabled = (true);
+            continueButton.gameObject.SetActive(true);
+            defeat.GetComponent<MaskableGraphic>().enabled = (true);
+            defeat.gameObject.SetActive(true);
+            red.gameObject.SetActive(false);
+            respawn.gameObject.SetActive(false);
         }
         StartCoroutine(SubtractWaveTime());
     }
@@ -98,6 +114,16 @@ public class UserInterface : MonoBehaviour
             Context.gameData.Money -= tower.Towers[tn - 1].price;
             Context.tileInput.SelectedTowerNum = tn;
         }
+    }
+
+    public void UpgradeTower(int tn)
+    {
+        towerUpgrade.GetComponent<Animator>().SetTrigger("Upgrade");
+    }
+
+    public void UpgradeChar(int un)
+    {
+        charUpgrade.GetComponent<Animator>().SetTrigger("Upgrade");
     }
 
     public void SelectMenuType(RectTransform MenuType)
@@ -142,4 +168,16 @@ public class UserInterface : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void UIOnoff(bool isOn)
+    {
+        foreach (var item in GetComponentsInChildren<MaskableGraphic>(true))
+        {
+            item.enabled = isOn;
+        }
+        FindObjectOfType<PlayerAttack>().transform.GetChild(0).gameObject.SetActive(isOn);
+    }
+    public void AddTime(System.TimeSpan ts)
+    {
+        waveTime.Add(ts);
+    }
 }

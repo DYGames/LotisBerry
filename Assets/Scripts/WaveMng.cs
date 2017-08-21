@@ -33,6 +33,8 @@ public class WaveMng : MonoBehaviour
     public static bool isEndlessMode;
     private void Start()
     {
+        Wave = 0;
+        waveState = 0;
         isEndlessMode = false;
         SpawnList = new List<List<MonsterAmount>>();
         XmlDocument doc = new XmlDocument();
@@ -43,7 +45,6 @@ public class WaveMng : MonoBehaviour
             int count = 0;
             foreach (XmlNode item0 in item)
             {
-                Debug.Log(count);
                 SpawnList.Add(new List<MonsterAmount>());
                 foreach (XmlNode item1 in item0)
                 {
@@ -62,19 +63,16 @@ public class WaveMng : MonoBehaviour
             }
         }
 
-        WaveEndCallback += () =>
+        WaveEndCallback = () =>
         {
             Wave += 1;
+            Context.userInterface.AddTime(new System.TimeSpan(0, 1, 0));
             if (Wave >= SpawnList.Count)
             {
                 isEndlessMode = true;
                 Wave = UnityEngine.Random.Range(0, SpawnList.Count);
-                StartCoroutine(SpawnMob());
             }
-            else
-            {
-                StartCoroutine(SpawnMob());
-            }
+            StartCoroutine(SpawnMob());
         };
 
     }
@@ -116,10 +114,10 @@ public class WaveMng : MonoBehaviour
 
     public void StartGame()
     {
-        PlayerPrefs.SetInt("Money", 500);
         StartCoroutine(SpawnMob());
         StartCoroutine(Context.userInterface.SubtractWaveTime());
         Context.userInterface.Main.SetActive(false);
+        Context.userInterface.UIOnoff(true);
     }
 
     public void EndGame()

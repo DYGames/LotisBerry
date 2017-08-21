@@ -21,11 +21,6 @@ public class GameData : MonoBehaviour
     private void Start()
     {
         Context.gameData = this;
-        Money = PlayerPrefs.GetInt("Money", 0);
-    }
-
-    private void OnDestroy()
-    {
-        PlayerPrefs.SetInt("Money", Money);
+        Money = 1000;
     }
 }

@@ -14,6 +14,7 @@ public class Deer : Monster
 
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        CoinValue = 30;
     }
 
     protected override void Update()

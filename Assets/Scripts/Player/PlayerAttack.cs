@@ -57,7 +57,6 @@ public class PlayerAttack : MonoBehaviour, IUnit
     {
         HP = 100;
         Context.Player = transform;
-
         animator = GetComponent<Animator>();
 
         magAmount = 30;
@@ -77,23 +76,46 @@ public class PlayerAttack : MonoBehaviour, IUnit
             TPC.enabled = false;
             TPUC.enabled = false;
         }
+        if (Input.GetKeyDown(KeyCode.R) && !isReload)
+        {
+            StartCoroutine(Reload());
+        }
 
         Camera.main.orthographic = false;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Camera.main.orthographic = true;
-
         animator.SetBool("Shoot", false);
-
-        if (Input.GetMouseButton(0) && magAmount > 0 && HP > 0)
+        isHit = Physics.Raycast(ray, out hit);
+        if(isHit)
+            gun.transform.parent.LookAt(hit.transform);
+        if (Input.GetMouseButton(0) && magAmount > 0 && HP > 0 && !isReload)
         {
-            if (isHit = Physics.Raycast(ray, out hit))
+            if (isHit)
             {
+                CursorMng.cursorMng.CursorSizeTo(40);
+                CursorMng.cursorMng.CursorSizeTo(55, true);
                 animator.SetBool("Shoot", true);
             }
+        }
+        else if (isHit && hit.transform.gameObject.CompareTag("Monster"))
+        {
+            CursorMng.cursorMng.CursorSizeTo(60, true);
         }
         else if (magAmount <= 0 && !isReload)
         {
             StartCoroutine(Reload());
+        }
+
+
+        foreach (var item in GameObject.FindGameObjectsWithTag("Coin"))
+        {
+            if (Vector3.Distance(item.transform.position, transform.position) < 10)
+            {
+                int v = item.gameObject.GetComponent<Coin>().value;
+                if(v > 0)
+                    Context.gameData.Money += v;
+                break;
+            }
         }
     }
 
@@ -106,7 +128,6 @@ public class PlayerAttack : MonoBehaviour, IUnit
             audioSource.clip = shoot;
             audioSource.Play();
             magAmount -= 1;
-            gun.transform.parent.LookAt(hit.transform);
             muzzleFlash.Play("MuzzleFlash");
             GameObject t = Instantiate(bulletTrail);
             t.transform.position = transform.position;

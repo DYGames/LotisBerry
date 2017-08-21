@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//changed to guard tower
 public class Money : TowerInfo, IUnit
 {
     public override void Start()
     {
         base.Start();
-        StartCoroutine(MakeMoneyRoutine());
+       // StartCoroutine(MakeMoneyRoutine());
     }
 
     private IEnumerator MakeMoneyRoutine()

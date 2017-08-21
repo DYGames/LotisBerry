@@ -13,8 +13,15 @@ public class CameraLerp : MonoBehaviour
     public static Action toOrtho;
     public static Action toPerspec;
 
+    [SerializeField]
+    private List<Material> backMaterials;
+
     void Start()
     {
+        foreach (var item in backMaterials)
+        {
+            item.color = new Color(item.color.r, item.color.g, item.color.b, 70.0f / 255.0f);
+        }
         ortho = Camera.main.projectionMatrix;
         perspective = Matrix4x4.Perspective(60.0f, (float)Screen.width / (float)Screen.height, 0.01f, 1000.0f);
         matrixBlender = GetComponent<MatrixBlender>();
@@ -26,6 +33,10 @@ public class CameraLerp : MonoBehaviour
                 Camera.main.transform.SetParent(null);
                 StartCoroutine(LerptoOrthoRoutine());
             });
+            foreach (var item in backMaterials)
+            {
+                item.color = new Color(item.color.r, item.color.g, item.color.b, 70.0f / 255.0f);
+            }
         };
         toPerspec = () =>
         {
@@ -35,6 +46,10 @@ public class CameraLerp : MonoBehaviour
                 Camera.main.transform.SetParent(Context.Player);
                 StartCoroutine(LerptoPerspecRoutine());
             });
+            foreach (var item in backMaterials)
+            {
+                item.color = new Color(item.color.r, item.color.g, item.color.b, 1);
+            }
         };
     }
     static public IEnumerator LerptoOrthoRoutine()

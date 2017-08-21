@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets.Effects;
 
 public class Berry : TowerInfo, IUnit
@@ -54,7 +55,10 @@ public class Berry : TowerInfo, IUnit
 
 
 
+        Context.userInterface.UIOnoff(false);
+        Context.userInterface.continueButton.GetComponent<MaskableGraphic>().enabled = (true);
         Context.userInterface.continueButton.gameObject.SetActive(true);
+        Context.userInterface.defeat.GetComponent<MaskableGraphic>().enabled = (true);
         Context.userInterface.defeat.gameObject.SetActive(true);
     }
 }

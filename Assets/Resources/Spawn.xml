@@ -1,50 +1,30 @@
 <Spawn>
   <Wave1>
-    <Rabbit>5</Rabbit>
-    <Squirrel>3</Squirrel>
-    <Deer>2</Deer>
-    <Pig>1</Pig>
+    <Rabbit>10</Rabbit>
+    <Squirrel>10</Squirrel>
   </Wave1>
   <Wave2>
-    <Rabbit>7</Rabbit>
-    <Squirrel>5</Squirrel>
-    <Deer>2</Deer>
-    <Pig>1</Pig>
+    <Rabbit>10</Rabbit>
+    <Squirrel>10</Squirrel>
+    <Deer>5</Deer>
   </Wave2>
   <Wave3>
-    <Rabbit>8</Rabbit>
-    <Squirrel>5</Squirrel>
-    <Deer>3</Deer>
-    <Pig>1</Pig>
+    <Rabbit>13</Rabbit>
+    <Squirrel>10</Squirrel>
+    <Deer>7</Deer>
+    <Eagle>7</Eagle>
   </Wave3>
   <Wave4>
-    <Rabbit>10</Rabbit>
-    <Squirrel>5</Squirrel>
-    <Deer>3</Deer>
-    <Pig>1</Pig>
+    <Rabbit>15</Rabbit>
+    <Squirrel>15</Squirrel>
+    <Deer>10</Deer>
+    <Pig>5</Pig>
   </Wave4>
-  <Wave6>
-    <Rabbit>10</Rabbit>
-    <Squirrel>7</Squirrel>
-    <Deer>3</Deer>
-    <Pig>1</Pig>
-  </Wave6>
-  <Wave8>
-    <Rabbit>10</Rabbit>
-    <Squirrel>7</Squirrel>
-    <Deer>5</Deer>
-    <Pig>1</Pig>
-  </Wave8>
-  <Wave9>
-    <Rabbit>10</Rabbit>
-    <Squirrel>7</Squirrel>
-    <Deer>5</Deer>
-    <Pig>3</Pig>
-  </Wave9>
-  <Wave10>
-    <Rabbit>10</Rabbit>
-    <Squirrel>7</Squirrel>
-    <Deer>6</Deer>
-    <Pig>3</Pig>
-  </Wave10>
+  <Wave5>
+    <Rabbit>15</Rabbit>
+    <Squirrel>15</Squirrel>
+    <Deer>10</Deer>
+    <Eagle>7</Eagle>
+    <Pig>7</Pig>
+  </Wave5>
 </Spawn>

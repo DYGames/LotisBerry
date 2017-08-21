@@ -14,6 +14,7 @@ public class Squirrel : Monster
 
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        CoinValue = 20;
     }
 
     protected override void Update()

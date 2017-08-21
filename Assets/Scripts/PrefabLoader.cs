@@ -10,6 +10,8 @@ public class PrefabLoader : MonoBehaviour
     public GameObject TowerHitEffect;
     [SerializeField]
     public GameObject TowerDestroyEffect;
+    [SerializeField]
+    public GameObject Coin;
 
     private void Start()
     {

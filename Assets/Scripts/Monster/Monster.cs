@@ -21,7 +21,10 @@ public class Monster : MonoBehaviour, IUnit, IMonster
     protected bool isStopped;
     protected float attackDelay;
 
+    [SerializeField]
     protected Transform target;
+
+    protected int CoinValue;
     protected virtual void Start()
     {
         Agent = GetComponent<NavMeshAgent>();
@@ -73,6 +76,10 @@ public class Monster : MonoBehaviour, IUnit, IMonster
         GetComponent<AudioSource>().clip = die;
         GetComponent<AudioSource>().Play();
         StopAllCoroutines();
+        GameObject o = Instantiate(Context.prefabLoader.Coin);
+        o.transform.position = new Vector3(transform.position.x, 1.15f, transform.position.z);
+        o.transform.gameObject.name = "Coin";
+        o.GetComponent<Coin>().value = CoinValue;
         Destroy(gameObject);
     }
 

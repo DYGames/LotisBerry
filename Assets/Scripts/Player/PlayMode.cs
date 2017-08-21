@@ -10,6 +10,7 @@ public class PlayMode : MonoBehaviour
         EDIT,
         TPS,
     }
+
     static private List<System.Type> types;
 
     static private Mode _mode;

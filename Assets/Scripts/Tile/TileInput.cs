@@ -106,6 +106,7 @@ public class TileInput : MonoBehaviour
                 hit.transform.localScale = Vector3.Lerp(hit.transform.localScale, Vector3.one * 1.2f, 0.1f);
                 if (SelectedTowerGameObject != null && !towerCoordinates.Contains(ttp))
                 {
+                    Cursor.SetActive(false);
                     SelectedTowerGameObject.SetActive(true);
                     SelectedTowerGameObject.transform.position = new Vector3(hit.transform.position.x, SelectedTowerGameObject.transform.position.y, hit.transform.position.z);
                 }

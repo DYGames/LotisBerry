@@ -13,6 +13,7 @@ public class Pig : Monster
 
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        CoinValue = 100;
     }
 
     protected override void Update()
@@ -24,13 +25,16 @@ public class Pig : Monster
 
     public override IEnumerator FindAndTarget()
     {
-        if (target != null)
+        while (true)
         {
-            target = TowerInfo.LotisBerry;
-            Agent.SetDestination(target.transform.position);
-            Agent.stoppingDistance = target.GetComponentInChildren<MeshFilter>().mesh.bounds.size.x * 0.5f;
+            if (target == null)
+            {
+                target = TowerInfo.LotisBerry;
+                Agent.SetDestination(target.transform.position);
+                Agent.stoppingDistance = target.GetComponentInChildren<MeshFilter>().mesh.bounds.size.x * 0.5f;
+            }
+            yield return null;
         }
-        yield return null;
     }
 
     private void UpdateAnimation()
