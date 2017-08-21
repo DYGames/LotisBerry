@@ -53,6 +53,7 @@ public class PlayerAttack : MonoBehaviour, IUnit
     private AudioClip shoot;
     [SerializeField]
     private AudioClip reload;
+
     void Start()
     {
         HP = 100;
@@ -87,7 +88,7 @@ public class PlayerAttack : MonoBehaviour, IUnit
         animator.SetBool("Shoot", false);
         isHit = Physics.Raycast(ray, out hit);
         if(isHit)
-            gun.transform.parent.LookAt(hit.transform);
+            gun.transform.parent.LookAt(hit.point);
         if (Input.GetMouseButton(0) && magAmount > 0 && HP > 0 && !isReload)
         {
             if (isHit)
