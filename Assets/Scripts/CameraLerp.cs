@@ -12,6 +12,7 @@ public class CameraLerp : MonoBehaviour
 
     public static Action toOrtho;
     public static Action toPerspec;
+    public static bool isOrtho = false;
 
     [SerializeField]
     private List<Material> backMaterials;
@@ -32,6 +33,7 @@ public class CameraLerp : MonoBehaviour
             {
                 Camera.main.transform.SetParent(null);
                 StartCoroutine(LerptoOrthoRoutine());
+                isOrtho = true;
             });
             foreach (var item in backMaterials)
             {
@@ -45,6 +47,7 @@ public class CameraLerp : MonoBehaviour
             {
                 Camera.main.transform.SetParent(Context.Player);
                 StartCoroutine(LerptoPerspecRoutine());
+                isOrtho = false;
             });
             foreach (var item in backMaterials)
             {

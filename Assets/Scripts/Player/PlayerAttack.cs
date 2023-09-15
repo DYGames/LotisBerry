@@ -84,7 +84,8 @@ public class PlayerAttack : MonoBehaviour, IUnit
 
         Camera.main.orthographic = false;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Camera.main.orthographic = true;
+        if (CameraLerp.isOrtho)
+            Camera.main.orthographic = true;
         animator.SetBool("Shoot", false);
         isHit = Physics.Raycast(ray, out hit);
         if(isHit)
